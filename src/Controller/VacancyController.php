@@ -5,6 +5,7 @@ namespace AYakovlev\Controller;
 
 
 use AYakovlev\Core\View;
+use AYakovlev\Exception\UnauthorizedException;
 use AYakovlev\Model\User;
 use AYakovlev\Model\Vacancy;
 
@@ -52,6 +53,11 @@ class VacancyController extends AbstractController
 
     public function add(): void
     {
+        if ($this->user === null) {
+            throw new UnauthorizedException();
+        }
+
         View::render("addVacancy", []);
+        return;
     }
 }
