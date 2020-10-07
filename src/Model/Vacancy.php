@@ -238,25 +238,71 @@ class Vacancy extends ActiveRecordEntity
         return 'vacancies';
     }
 
-    public static function createFromArray(array $fields, User $author): Article
+    public static function createFromArray(array $fields, User $author): Vacancy
     {
-        if (empty($fields['name'])) {
+        if (empty($fields['title'])) {
             throw new InvalidArgumentException('Не передано название вакансии');
         }
 
-        if (empty($fields['text'])) {
-            throw new InvalidArgumentException('Не передан текст статьи');
+        if (empty($fields['price'])) {
+            throw new InvalidArgumentException('Не передана зарплата');
         }
 
-        $article = new Article();
+        if (empty($fields['organization'])) {
+            throw new InvalidArgumentException('Не передана организация');
+        }
 
-        $article->setAuthor($author);
-        $article->setName($fields['name']);
-        $article->setText($fields['text']);
+        if (empty($fields['organization'])) {
+            throw new InvalidArgumentException('Не передана организация');
+        }
 
-        $article->save();
+        if (empty($fields['address'])) {
+            throw new InvalidArgumentException('Не передан адрес');
+        }
 
-        return $article;
+        if (empty($fields['telephone'])) {
+            throw new InvalidArgumentException('Не передан телефон');
+        }
+
+        if (empty($fields['experience'])) {
+            throw new InvalidArgumentException('Не передана опыт');
+        }
+
+        if (empty($fields['technology'])) {
+            throw new InvalidArgumentException('Не передан стек технологий');
+        }
+
+        if (empty($fields['skills'])) {
+            throw new InvalidArgumentException('Не переданы скилсы');
+        }
+
+        if (empty($fields['conditions'])) {
+            throw new InvalidArgumentException('Не переданы условия');
+        }
+
+        if (empty($fields['category'])) {
+            throw new InvalidArgumentException('Не передана категория');
+        }
+
+        $vacancy = new Vacancy();
+
+        $vacancy->setTitle($fields['title']);
+        $vacancy->setPrice($fields['price']);
+        $vacancy->setOrganization($fields['organization']);
+        $vacancy->setAddress($fields['address']);
+        $vacancy->setTelephone($fields['telephone']);
+        $vacancy->setExperience($fields['experience']);
+        $vacancy->setTechnology($fields['technology']);
+        $vacancy->setSkills($fields['skills']);
+        $vacancy->setConditions($fields['conditions']);
+        $vacancy->setDatecreation(date('Y-m-d H:i:s', time()));
+        $vacancy->setReserv(0);
+        $vacancy->setCategory($fields['category']);
+
+
+        $vacancy->save();
+
+        return $vacancy;
     }
 
 }
