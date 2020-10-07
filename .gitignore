@@ -1,0 +1,5 @@
+.idea
+public/pma
+vendor
+logs
+Nginx_1.17_vhost.conf
