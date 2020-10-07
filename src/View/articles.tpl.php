@@ -1,9 +1,9 @@
 <?php
-
 /**
  *  @var array $data - массив входящих переменных
  */
 ?>
+
 <?php include 'header.php'; ?>
 <?php foreach ($data as $article): ?>
     <h2><a href="/article/view/<?= $article->getId(); ?>"><?= $article->getName() ?></a></h2>

@@ -52,7 +52,7 @@ class Article extends ActiveRecordEntity
     }
 
     // Lazy load - запрос будет выполнен только если мы вызовем этот геттер.
-    public function getAuthor(): User
+    public function getAuthor(): ?User
     {
         return User::getById($this->authorId);
     }
