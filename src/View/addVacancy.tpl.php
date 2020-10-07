@@ -11,12 +11,34 @@
     <div style="color: red;"><?= $error ?></div>
 <?php endif; ?>
     <form action="/vacancy/add" method="post">
-        <label for="name">Название статьи</label><br>
-        <input type="text" name="name" id="name" value="<?= $_POST['name'] ?? '' ?>" size="50"><br>
+        <label for="name">Наименование вакансии:</label><br>
+        <input type="text" name="name" id="name" value="<?= $_POST['title'] ?? '' ?>" size="50"><br>
         <br>
-        <label for="text">Текст статьи</label><br>
-        <textarea name="text" id="text" rows="10" cols="80"><?= $_POST['text'] ?? '' ?></textarea><br>
+        <label for="price">Зарплата:</label><br>
+        <input type="text" name="price" id="price" value="><?= $_POST['price'] ?? '' ?>" size="50" <br>
         <br>
-        <input type="submit" value="Создать">
+        <label for="organization">Организация:</label><br>
+        <input type="text" name="organization" id="organization" value="><?= $_POST['organization'] ?? '' ?>" size="50" <br>
+        <br>
+        <label for="address">Адрес:</label><br>
+        <input type="text" name="address" id="address" value="><?= $_POST['address'] ?? '' ?>" size="50" <br>
+        <br>
+        <label for="telephone">Телефон:</label><br>
+        <input type="text" name="telephone" id="telephone" value="><?= $_POST['telephone'] ?? '' ?>" size="50" <br>
+        <br>
+        <label for="experience">Требуемый опыт:</label><br>
+        <input type="text" name="experience" id="experience" value="><?= $_POST['experience'] ?? '' ?>" size="50" <br>
+        <br>
+        <label for="technology">Технологии:</label><br>
+        <input type="text" name="technology" id="technology" value="><?= $_POST['technology'] ?? '' ?>" size="50" <br>
+        <br>
+        <label for="skills">Требуемые навыки:</label><br>
+        <input type="text" name="skills" id="skills" value="><?= $_POST['skills'] ?? '' ?>" size="50" <br>
+        <br>
+        <label for="conditions">Условия:</label><br>
+        <input type="text" name="conditions" id="conditions" value="><?= $_POST['conditions'] ?? '' ?>" size="50" <br>
+        <br>
+
+        <input type="submit" value="Создать вакансию">
     </form>
 <?php include __DIR__ . '/../footer.php'; ?>

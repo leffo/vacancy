@@ -52,16 +52,6 @@ class VacancyController extends AbstractController
 
     public function add(): void
     {
-        $author = User::getById(1);
-
-        $data = new Vacancy();
-        $data->setAuthor($author);
-        $data->setName('Сущность-Атрибут-Значение');
-        $data->setText('Модель Сущность-Атрибут-Значение (EAV) - это модель данных, предназначенная для описания сущностей, в которых количество атрибутов (свойств, параметров), характеризующих их, потенциально огромно, но то количество, которое реально будет использоваться в конкретной сущности, относительно мало.');
-
-        $data->save();
-
-        View::render("addSuccessful", []);
-
+        View::render("addVacancy", []);
     }
 }
