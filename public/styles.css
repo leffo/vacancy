@@ -28,3 +28,6 @@
 a, a:visited {
     color: darkgreen;
 }
+body {
+    font-family: 'Inter', sans-serif;
+}
