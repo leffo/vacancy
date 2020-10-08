@@ -4,6 +4,7 @@
 namespace AYakovlev\Controller;
 
 
+use AYakovlev\Core\Request;
 use AYakovlev\Core\View;
 use AYakovlev\Exception\InvalidArgumentException;
 use AYakovlev\Exception\UnauthorizedException;
@@ -11,14 +12,16 @@ use AYakovlev\Model\Vacancy;
 
 class VacancyController extends AbstractController
 {
-    private int $idVacancy;
+    private ?int $idVacancy;
     protected Vacancy $vacancy;
 
     public function __construct()
     {
         parent::__construct();
         $this->vacancy = new Vacancy();
-        //$this->idVacancy = $this->vacancy->getId();
+        if (isset(Request::$params[3])) {
+            $this->idVacancy = Request::$params[3];
+        }
     }
 
     /**

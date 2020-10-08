@@ -11,8 +11,8 @@
     <div style="color: red;"><?= $error ?></div>
 <?php endif; ?>
     <form action="/vacancy/add" method="post">
-        <label for="name">Наименование вакансии:</label><br>
-        <input type="text" name="name" id="name" value="<?= $_POST['title'] ?? '' ?>" size="50"><br>
+        <label for="title">Наименование вакансии:</label><br>
+        <input type="text" name="title" id="title" value="<?= $_POST['title'] ?? '' ?>" size="50"><br>
         <br>
         <label for="price">Зарплата:</label><br>
         <input type="text" name="price" id="price" value="<?= $_POST['price'] ?? '' ?>" size="50" <br>

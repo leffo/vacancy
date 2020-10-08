@@ -144,4 +144,5 @@ abstract class ActiveRecordEntity
         }
         return $result[0];
     }
+
 }

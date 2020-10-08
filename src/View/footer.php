@@ -4,6 +4,7 @@
     <ul>
         <li><a href="/blog/articles">Patterns</a></li>
         <li><a href="/vacs/vacancies">Vacancies</a></li>
+        <li><a href="/vacancy/add">Add vacancy</a></li>
         <li><a href="/aboutme/about">About me...</a></li>
     </ul>
 </td>
