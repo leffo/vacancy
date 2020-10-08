@@ -39,6 +39,7 @@ class Db
     {
         $sth = $this->pdo->prepare($sql);
         $result = $sth->execute($params);
+        //var_dump($sth->fetchAll());
 
         if (false === $result) {
             return null;

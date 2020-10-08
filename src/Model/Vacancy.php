@@ -21,8 +21,7 @@ class Vacancy extends ActiveRecordEntity
     protected string $technology;
     protected string $skills;
     protected string $conditions;
-    protected string $datecreation;
-    protected int $reserv;
+    protected ?string $datecreation;
     protected string $category;
 
     public function __construct()
@@ -107,20 +106,12 @@ class Vacancy extends ActiveRecordEntity
     /**
      * @return string
      */
-    public function getDatecreation(): string
+    public function getDatecreation(): ?string
     {
         return $this->datecreation;
     }
 
-    /**
-     * @return int
-     */
-    public function getReserv(): int
-    {
-        return $this->reserv;
-    }
-
-    /**
+     /**
      * @return string
      */
     public function getCategory(): string
@@ -211,17 +202,9 @@ class Vacancy extends ActiveRecordEntity
     /**
      * @param string $datecreation
      */
-    public function setDatecreation(string $datecreation): void
+    public function setDatecreation(?string $datecreation): void
     {
         $this->datecreation = $datecreation;
-    }
-
-    /**
-     * @param int $reserv
-     */
-    public function setReserv(int $reserv): void
-    {
-        $this->reserv = $reserv;
     }
 
     /**
@@ -239,7 +222,7 @@ class Vacancy extends ActiveRecordEntity
         return 'vacancies';
     }
 
-    public static function createFromArray(array $fields, User $author): Vacancy
+    public static function createFromArray(array $fields): Vacancy
     {
         if (empty($fields['title'])) {
             throw new InvalidArgumentException('Не передано название вакансии');
@@ -298,8 +281,7 @@ class Vacancy extends ActiveRecordEntity
         $vacancy->setTechnology($fields['technology']);
         $vacancy->setSkills($fields['skills']);
         $vacancy->setConditions($fields['conditions']);
-        $vacancy->setDatecreation(date('Y-m-d H:i:s', time()));
-        $vacancy->setReserv(0);
+        $vacancy->setDatecreation(null);
         $vacancy->setCategory($fields['category']);
 
 
