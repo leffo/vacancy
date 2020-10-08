@@ -4,6 +4,7 @@
 namespace AYakovlev\Model;
 
 
+use AYakovlev\Core\Db;
 use AYakovlev\Core\Request;
 use AYakovlev\Exception\InvalidArgumentException;
 
@@ -285,6 +286,8 @@ class Vacancy extends ActiveRecordEntity
         }
 
         $vacancy = new Vacancy();
+        $db = Db::getInstance();
+        $vacancy->setId($db->getLastInsertId() + 1);
 
         $vacancy->setTitle($fields['title']);
         $vacancy->setPrice($fields['price']);
