@@ -222,7 +222,7 @@ class Vacancy extends ActiveRecordEntity
         return 'vacancies';
     }
 
-    public static function createFromArray(array $fields): Vacancy
+    public static function createFromArray(array $fields, User $author): Vacancy
     {
         if (empty($fields['title'])) {
             throw new InvalidArgumentException('Не передано название вакансии');

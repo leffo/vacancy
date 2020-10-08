@@ -8,6 +8,7 @@ use AYakovlev\Core\Request;
 use AYakovlev\Core\View;
 use AYakovlev\Exception\InvalidArgumentException;
 use AYakovlev\Exception\UnauthorizedException;
+use AYakovlev\Model\User;
 use AYakovlev\Model\Vacancy;
 
 class VacancyController extends AbstractController
@@ -62,7 +63,7 @@ class VacancyController extends AbstractController
 
         if (!empty($_POST)) {
             try {
-                $vacancy = Vacancy::createFromArray($_POST);
+                $vacancy = Vacancy::createFromArray($_POST, $this->user);
             } catch (InvalidArgumentException $e) {
                 View::render('vacancy/add.php', ['error' => $e->getMessage()]);
                 return;
