@@ -28,7 +28,7 @@ class Db
         $this->pdo = new PDO('mysql:host=' . $dbOptions['host'] . ';dbname=' . $dbOptions['dbname'],
             $dbOptions['user'],
             $dbOptions['password']);
-
+        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->pdo->exec('SET NAMES UTF8');
         } catch (\PDOException $e) {
             throw new DbException('Ошибка при подключении к базе данных: ' . $e->getMessage());

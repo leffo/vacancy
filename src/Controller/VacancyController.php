@@ -64,7 +64,7 @@ class VacancyController extends AbstractController
             try {
                 $vacancy = Vacancy::createFromArray($_POST, $this->user);
             } catch (InvalidArgumentException $e) {
-                View::render('articles/add.php', ['error' => $e->getMessage()]);
+                View::render('vacancy/add.php', ['error' => $e->getMessage()]);
                 return;
             }
 

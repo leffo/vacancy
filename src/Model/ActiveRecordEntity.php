@@ -102,7 +102,8 @@ abstract class ActiveRecordEntity
 
     private function insert(array $mappedProperties): void
     {
-        $filteredProperties = array_filter($mappedProperties);
+        //$filteredProperties = array_filter($mappedProperties);
+        $filteredProperties = $mappedProperties;
         $columns = [];
         foreach ($filteredProperties as $columnName => $value) {
             $columns[] = $columnName;

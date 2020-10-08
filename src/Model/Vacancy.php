@@ -286,8 +286,8 @@ class Vacancy extends ActiveRecordEntity
         }
 
         $vacancy = new Vacancy();
-        $db = Db::getInstance();
-        $vacancy->setId($db->getLastInsertId() + 1);
+        //$db = Db::getInstance();
+        $vacancy->setId(null);
 
         $vacancy->setTitle($fields['title']);
         $vacancy->setPrice($fields['price']);
