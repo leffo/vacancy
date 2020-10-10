@@ -44,8 +44,9 @@ class Db
         if (false === $result) {
             return null;
         }
-
-        return $sth->fetchAll(PDO::FETCH_CLASS, $className);
+        $res = $sth->fetchAll(PDO::FETCH_CLASS, $className);
+        //$res = $sth->fetchAll();
+        return $res;
     }
 
     // simple singleton for Db call, without clone and copy

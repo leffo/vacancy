@@ -12,9 +12,6 @@ class User extends ActiveRecordEntity
     protected string $email;
     protected bool   $isConfirmed;
     protected string $role;
-    /**
-     * @var false|null|string $passwordHash;
-     */
     protected $passwordHash;
 
     protected string $authToken;

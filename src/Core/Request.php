@@ -10,16 +10,7 @@ class Request
 {
     private string $controller = 'Default';
     private string $method = 'Index';
-    /**
-     * @var mixed|string|int|null
-     */
-    private $id = null;
     public static array $params = [];
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function __construct()
     {
@@ -41,10 +32,6 @@ class Request
             $this->method = $uri[2];
         }
 
-        if (isset($uri[3])) {
-            $this->id = $uri[3];
-        }
-
         $numberParams = count($uri);
         $i = 1;
         while ($i <= $numberParams) {
@@ -63,10 +50,6 @@ class Request
 
         if (!method_exists("AYakovlev\Controller\\" . $this->controller . "Controller", $this->method)) {
             throw new Exception("Метод AYakovlev\Controller\\" . ucfirst($this->controller) . "Controller\\" . $this->method . " не существует<br>");
-        }
-
-        if (!is_numeric($this->id) && $this->id != null) {
-            throw new Exception("Ошибка параметра Id: '" . $this->id . "' - не число<br>");
         }
 
         return true;

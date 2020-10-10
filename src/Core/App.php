@@ -23,10 +23,6 @@ class App extends User
 
         // вызвать у него метод из команды
         $method = $request->getMethod();
-        $id = $request->getId();
-        if (isset($id) && $controllerName == "AYakovlev\\Controller\\ArticleController") {
-            $controller->setIdArticle($id);
-        }
         $controller->$method();
     }
 }
