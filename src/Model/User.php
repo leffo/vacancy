@@ -8,7 +8,7 @@ use AYakovlev\Exception\InvalidArgumentException;
 
 class User extends ActiveRecordEntity
 {
-    protected string $nickname;
+    protected ?string $nickname;
     protected string $email;
     protected bool   $isConfirmed;
     protected string $role;
@@ -21,7 +21,7 @@ class User extends ActiveRecordEntity
 
    protected string $createdAt;
 
-    public function getNickname(): string
+    public function getNickname(): ?string
     {
         return $this->nickname;
     }

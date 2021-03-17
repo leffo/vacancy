@@ -12,7 +12,7 @@
     </h2>
     <h4>Created: <?= $data['data']->getCreatedAt() ?>
         &nbsp;&nbsp;&nbsp;
-        Author:  <?= $data['author']->getNickname() ?>
+        Author:  Me/*<?= $data['author']->getNickname() ?>*/
     </h4>
     <p><?= $data['data']->getText() ?></p>
     <br>
